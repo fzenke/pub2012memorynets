@@ -44,18 +44,18 @@
 #define NE 8000
 #define NI 2000
 
-using namespace std;
+using namespace auryn;
 
 namespace po = boost::program_options;
 namespace mpi = boost::mpi;
 
 int main(int ac,char *av[]) {
-	string dir = ".";
+	std::string dir = ".";
 
-	stringstream oss;
-	string infilename = "";
-	string strbuf ;
-	string msg;
+	std::stringstream oss;
+	std::string infilename = "";
+	std::string strbuf ;
+	std::string msg;
 
 	double w = 0.1;
 	double chi = 0.20;
@@ -81,10 +81,10 @@ int main(int ac,char *av[]) {
 	communicator = &world;
 
 	oss << dir  << "/spikehopf." << world.rank() << ".";
-	string outputfile = oss.str();
+	std::string outputfile = oss.str();
 
 	char tmp [255];
-	stringstream logfile;
+	std::stringstream logfile;
 	logfile << outputfile << "log";
 	logger = new Logger(logfile.str(),world.rank());
 
@@ -97,7 +97,7 @@ int main(int ac,char *av[]) {
         po::options_description desc("Allowed options");
         desc.add_options()
             ("help", "produce help message")
-            ("load", po::value<string>(), "input weight matrix")
+            ("load", po::value<std::string>(), "input weight matrix")
             ("chi", po::value<double>(), "chi factor")
             ("ext", po::value<double>(), "ext factor")
             ("gamma", po::value<double>(), "gamma factor")
@@ -113,71 +113,71 @@ int main(int ac,char *av[]) {
         po::notify(vm);    
 
         if (vm.count("help")) {
-            cout << desc << "\n";
+			std::cout << desc << "\n";
             return 1;
         }
 
         if (vm.count("load")) {
-            cout << "load from matrix " 
-                 << vm["load"].as<string>() << ".\n";
-			infilename = vm["load"].as<string>();
+			std::cout << "load from matrix " 
+                 << vm["load"].as<std::string>() << ".\n";
+			infilename = vm["load"].as<std::string>();
         } 
 
         if (vm.count("chi")) {
-            cout << "chi from matrix " 
+			std::cout << "chi from matrix " 
                  << vm["chi"].as<double>() << ".\n";
 			chi = vm["chi"].as<double>();
         } 
 
         if (vm.count("ext")) {
-            cout << "ext from matrix " 
+			std::cout << "ext from matrix " 
                  << vm["ext"].as<double>() << ".\n";
 			ext = vm["ext"].as<double>();
         } 
 
         if (vm.count("gamma")) {
-            cout << "gamma factor " 
+			std::cout << "gamma factor " 
                  << vm["gamma"].as<double>() << ".\n";
 			gamma = vm["gamma"].as<double>();
         } 
 
         if (vm.count("wee")) {
-            cout << "wee factor " 
+			std::cout << "wee factor " 
                  << vm["wee"].as<double>() << ".\n";
 			wee = vm["wee"].as<double>();
         } 
 
         if (vm.count("wei1")) {
-            cout << "wei1 factor " 
+			std::cout << "wei1 factor " 
                  << vm["wei1"].as<double>() << ".\n";
 			wei1 = vm["wei1"].as<double>();
         } 
 
         if (vm.count("wei2")) {
-            cout << "wei2 factor " 
+			std::cout << "wei2 factor " 
                  << vm["wei2"].as<double>() << ".\n";
 			wei2 = vm["wei2"].as<double>();
         } 
 
         if (vm.count("wie")) {
-            cout << "wie factor " 
+			std::cout << "wie factor " 
                  << vm["wie"].as<double>() << ".\n";
 			wie = vm["wie"].as<double>();
         } 
 
         if (vm.count("wii")) {
-            cout << "wii factor " 
+			std::cout << "wii factor " 
                  << vm["wii"].as<double>() << ".\n";
 			wii = vm["wii"].as<double>();
         } 
 
     }
-    catch(exception& e) {
-        cerr << "error: " << e.what() << "\n";
+    catch(std::exception& e) {
+		std::cerr << "error: " << e.what() << "\n";
         return 1;
     }
     catch(...) {
-        cerr << "Exception of unknown type!\n";
+		std::cerr << "Exception of unknown type!\n";
     }
 
 
@@ -221,7 +221,7 @@ int main(int ac,char *av[]) {
 	logger->msg("Setting up stimulus ...",PROGRESS,true);
 	if ( infilename != "" ) {
 
-		stringstream filename;
+		std::stringstream filename;
 		filename << outputfile << "stimtimes";
 		StimulusGroup * stimgroup = new StimulusGroup(1000,infilename,filename.str().c_str(),RANDOM);
 		stimgroup->set_mean_on_period(1);
@@ -230,7 +230,7 @@ int main(int ac,char *av[]) {
 		stimgroup->randomintervals=false;
 		IdentityConnection * con_stim = new IdentityConnection(stimgroup,neurons_e,1.0,NMDA);
 
-		vector<double> dist = stimgroup->get_distribution();
+		std::vector<double> dist = stimgroup->get_distribution();
 		int r = 3;
 		for ( int i = 0 ; i < dist.size() ; ++i ) {
 			if ( i < r ) 
@@ -259,7 +259,7 @@ int main(int ac,char *av[]) {
 	msg = "Setting up monitors ...";
 	logger->msg(msg,PROGRESS,true);
 
-	stringstream filename;
+	std::stringstream filename;
 	filename << outputfile << "e.ras";
 	SpikeMonitor * smon_e = new SpikeMonitor( neurons_e, filename.str().c_str() );
 
