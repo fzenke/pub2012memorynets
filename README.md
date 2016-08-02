@@ -80,7 +80,11 @@ Terminal type set to 'wxt'
 gnuplot> load 'plot_activity.gnu'
 ```
 
-Firing rates become less crazy with paramter tuning and as you load more
+The output should look somewhat like this.
+![Example plot](/images/plot_activity.png)
+
+You can see that there is a pattern switch happening in those 30s.
+Firing rates become "less crazy" with paramter tuning and as you load more
 patterns (there are files with different numbers of random patterns in
 ``./stim``) which unfortunately always requires retuning.
 
