@@ -1,0 +1,19 @@
+27.02.2013
+First success with (auryn commit 5447d3056b7445b4256977f98fce1ca24cde70a9)
+make sim_wulf_hopfield && mpirun -n 2 ./sim_wulf_hopfield --load ~/stim/wulfp50.pat --chi 1 --wei1 0.3 --wei2 0.05
+* still a lot of synchrony/oscillations but recall seems to start working
+
+
+Seems to work now with 100 patterns (commit 2d5cc98baab29c4855a38ef1487a755a27c318dd)
+make sim_wulf_hopfield && mpirun -n 2 ./sim_wulf_hopfield --load ~/stim/wulfp100.pat --chi 0.4 --gamma 0.1 --wei1 0.3 --wei2 0.02 --ext 7
+
+
+This is still in overwrite mode for the EE weights ().
+make sim_wulf_hopfield && mpirun -n 2 ./sim_wulf_hopfield --load ~/stim/wulfp100.pat --chi 0.3 --gamma 0.04 --wei1 0.31 --wei2 0.02 --ext 5
+
+
+Status quo now: 90 patterns work fine with auryn commit d6e5941486606c8de421f47ff7eb1454d2fc7795 and the EE weights cut off and 
+make sim_wulf_hopfield && mpirun -n 2 ./sim_wulf_hopfield --load ~/stim/wulfp90.pat --chi 0.3 --gamma 0.04 --wei1 0.31 --wei2 0.02 --ext 5
+
+
+next steps: do not crop the weights and against osciallations maybe reimplement with NMDA only
