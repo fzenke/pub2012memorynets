@@ -95,6 +95,7 @@ int main(int ac,char *av[]) {
             ("wei2", po::value<double>(), "wei2 weight")
             ("wie", po::value<double>(), "wie weight")
             ("wii", po::value<double>(), "wii weight")
+            ("simtime", po::value<double>(), "simulation time")
         ;
 
         po::variables_map vm;        
@@ -158,6 +159,12 @@ int main(int ac,char *av[]) {
 			std::cout << "wii factor " 
                  << vm["wii"].as<double>() << ".\n";
 			wii = vm["wii"].as<double>();
+        } 
+
+        if (vm.count("simtime")) {
+			std::cout << "simtime " 
+                 << vm["simtime"].as<double>() << ".\n";
+			simtime = vm["simtime"].as<double>();
         } 
 
     }
