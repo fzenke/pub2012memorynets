@@ -28,18 +28,7 @@
 #include <boost/mpi/communicator.hpp>
 #include <boost/mpi.hpp>
 
-#include "System.h"
-#include "IFGroup.h"
-#include "AIFGroup.h"
-#include "PoissonGroup.h"
-#include "SparseConnection.h"
-#include "SymmetricSTDPConnection.h"
-#include "WeightSumMonitor.h"
-#include "SpikeMonitor.h"
-#include "RateChecker.h"
-#include "StimulusGroup.h"
-#include "IdentityConnection.h"
-#include "PatternMonitor.h"
+#include "auryn.h"
 
 #define NE 8000
 #define NI 2000
