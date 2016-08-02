@@ -1,0 +1,7 @@
+Successful for the follwing parameter sets with simulation file in auryn commit 1ba64130946efe6ffdb9c077088f18dd475d8de7
+mpirun -n 2 ./sim_wulf_hopfield2 --load ~/stim/wulfp10.pat --chi 0.3 --gamma 0.2  --wei1 0.15 --wei2 0.06
+mpirun -n 2 ./sim_wulf_hopfield2 --load ~/stim/wulfp30.pat --chi 0.3 --gamma 0.24 --wei1 0.15 --wei2 0.06
+mpirun -n 2 ./sim_wulf_hopfield2 --load ~/stim/wulfp60.pat --chi 0.3 --gamma 0.28 --wei1 0.15 --wei2 0.06
+mpirun -n 2 ./sim_wulf_hopfield2 --load ~/stim/wulfp70.pat --chi 0.3 --gamma 0.3  --wei1 0.18 --wei2 0.06
+mpirun -n 2 ./sim_wulf_hopfield2 --load ~/stim/wulfp80.pat --chi 0.38 --gamma 0.3  --wei1 0.25 --wei2 0.06
+mpirun -n 2 ./sim_wulf_hopfield2 --load ~/stim/wulfp90.pat --chi 0.4 --gamma 0.22  --wei1 0.36 --wei2 0.06
