@@ -18,7 +18,7 @@ LDFLAGS=-L$(BUILDDIR) -lauryn \
 #         -I$(AURYNDIR)/src -I$(AURYNDIR)/dev/src
 
 OBJECTS=
-SIMS=sim_wulf_hopfield2
+SIMS=sim_wulf_hopfield sim_wulf_hopfield2
 
 .SECONDARY:
 
