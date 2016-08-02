@@ -1,7 +1,7 @@
 /* 
-* Copyright 2014 Friedemann Zenke
+* Copyright 2012-2016 Friedemann Zenke
 *
-* This file is part of Auryn, a simulation package for plastic
+* This file is a simulation written for Auryn, a simulation package for plastic
 * spiking neural networks.
 * 
 * Auryn is free software: you can redistribute it and/or modify
