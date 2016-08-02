@@ -30,8 +30,9 @@ You can build the simulation code with `make` after having updated the
 
 ## Example
 
+Here is an example
 ```
-fzenke@grumpy:~/archive/2012-book-wulfram/spiking_hopfield$ make && mpirun -n 2 ./sim_hopfield2 --load ./stim/wulfp3.pat --chi 0.3 --gamma 0.2  --wei1 0.15 --wei2 0.1 --simtime 30
+fzenke@grumpy:~/archive/2012-book-wulfram/spiking_hopfield/src$ make && mpirun -n 2 ./sim_hopfield2 --load ../stim/wulfp3.pat --chi 0.3 --gamma 0.2  --wei1 0.15 --wei2 0.1 --simtime 30
 make: Nothing to be done for `all'.
 load from matrix ./stim/wulfp3.pat.
 chi from matrix 0.3.
@@ -60,10 +61,10 @@ simtime 30.
 ( 0) Freeing ...
 ```
 
-With `plot_activity.gnu you see how this indeed switches between different
+which will produce a bunch of output files. With `plot_activity.gnu you see how this indeed switches between different
 patterns. 
 ```
-fzenke@grumpy:~/archive/2012-book-wulfram/spiking_hopfield$ gnuplot 
+fzenke@grumpy:~/archive/2012-book-wulfram/spiking_hopfield/src$ gnuplot 
 
 	G N U P L O T
 	Version 5.0 patchlevel 1    last modified 2015-06-07 
